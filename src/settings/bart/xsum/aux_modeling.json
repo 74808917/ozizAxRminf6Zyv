@@ -1,0 +1,24 @@
+{
+    "model_name": "topicy_xsum",
+    "topicy": {
+        "ner_certainty": {
+            "lambda_w": 1.0,
+            "source_ner": true,
+            "summary_ner": true,
+            "avg_jentropy": false,
+            "epsilon": 1e-14,
+            "share_lm_head": false,
+            "__comment_functor__": ["info_gain", "joint_entropy"],
+            "__comment_chain_type__": ["sum", "cumsum"],
+            "functors": [{"functor": "info_gain", "chain_type": "cumsum", "w_lambda": 1.0},
+                        {"functor": "joint_entropy", "chain_type": "sum", "w_lambda": 1.0}]
+        },
+        "transport_optim": {
+            "on": true,
+            "x2y": false,
+            "affine_dim": 1024,
+            "bias": false,
+            "lambda_w": 1.0
+        }
+    }
+}
